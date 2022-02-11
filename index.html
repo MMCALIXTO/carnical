@@ -312,7 +312,7 @@
             Garrada
         </td>
         <td>Fisico e Morte</td>
-        <td><img onclick="rollDano_0()" class="attributeDice" src="./img/dado.png" alt="Dado" style="display: block; margin-left: auto; margin-right: auto; height: 20px; cursor: pointer;">1d6+3d8</td>
+        <td><img onclick="rollDano_0()" class="attributeDice" src="./img/dado.png" alt="Dado" style="display: block; margin-left: auto; margin-right: auto; height: 20px; cursor: pointer;">1d6+8+3d8</td>
         <td>Adjacente</td>
         <td><img onclick="rollDano_1()" class="attributeDice" src="./img/dado.png" alt="Dado" style="display: block; margin-left: auto; margin-right: auto; height: 20px; cursor: pointer;">19 a 20</td>
         <td>+2d</td>
@@ -500,7 +500,7 @@
       
     
       setTimeout(() => {
-        let danoz = rollDice('1d6')
+        let danoz = rollDice('1d6') + 8
         let danodois = rollDice('3d8')
         const diceNumber = danoz + danodois
         const diceType = "(Fis)" +danoz+ "+" +danodois+ "(Morte)"
@@ -539,7 +539,7 @@
       
     
       setTimeout(() => {
-        let danoz = rollDice('3d6')
+        let danoz = rollDice('3d6') + 8
         let danodois = rollDice('3d8')
         const diceNumber = danoz + danodois
         const diceType = "(Fis)" +danoz+ "+" +danodois+ "(Morte)"
