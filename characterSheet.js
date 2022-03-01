@@ -460,8 +460,6 @@ function addWeaponToTable(weapon, id) {
 
 
 
-
-
 function addAttribute(attribute, id) {
 
 
@@ -471,7 +469,7 @@ function addAttribute(attribute, id) {
       <img class="attributeDice" src="./img/dado.png" alt="Dado">
     </a>
     <h3>${attribute.type}</h3>
-    <input type="text" name="appearance" value="${attribute.amount}"  id="attribute_input_${id}" >
+    <input type="text" name="appearance" value="${attribute.amount}"  id="attribute_input_${id}" disabled>
   </div>
   
 <script>
@@ -492,11 +490,6 @@ function addAttribute(attribute, id) {
     document.getElementById(element_ID).innerHTML=result${id};
   }
   
-
-
-
-
-
   function roll_dice_rep${id}()
   {
     rep= parseInt(document.getElementById('attribute_input_${id}').value) + parseInt(1);
@@ -517,14 +510,7 @@ function addAttribute(attribute, id) {
         result${id}+=(cnt>1)?' = <b>'+sum+'</b>':'';
         result${id}+=',  ';
     }
-
-
-
-
     console.log(this)
-
-
-
     diceModal.css('display', 'block')
   
     setTimeout(() => {
@@ -553,7 +539,6 @@ function addAttribute(attribute, id) {
       }, 100000000000)
     }, 2000)
   
-
   }
   </script>
   
@@ -586,16 +571,10 @@ function addpericia(pericia, id) {
   </div>
   
   <style>
-
   .sty${id} {
     text-align: center;
   }
-
   
-
-
-
-
   </style>
   
   `)
@@ -644,16 +623,19 @@ function deleteWeapon(id) {
 
 //para vida
 
-
 function tirar(){
   
   let current = Number($('#lifeCurrent').val()) - 1
   const max = Number($('#lifeMax').val())
-
+  
   
   data.life.current = current
   data.life.max = max
 
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
 
 
   $('.lifeBar').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
@@ -673,7 +655,9 @@ function add(){
   data.life.current = current
   data.life.max = max
 
-
+if (current > max) {
+    current.add(--max)
+  }
 
   $('.lifeBar').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
   
@@ -682,7 +666,6 @@ function add(){
   
 
 }
-
 
 
 
